@@ -1,0 +1,82 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">Bem vindo ao gerenciador de torneios!</h3>
+  </div>
+
+  <div class="box-body">
+    <div class="box-group" id="accordion">
+      <div class="panel box box-success">
+        <div class="box-header with-border">
+          <h4 class="box-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              Times
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="box-body">
+            Como todo torneio possui times participantes, é no cadastro de "<a [routerLink]="['/team']">Times</a>"
+            que informaremos todos os times possíveis que farão parte dos torneios que o sistema irá gerenciar.
+            Para o time podemos informar o seu nome com até 50 caracteres e uma descrição do time podendo ter
+            até 150 caracteres.
+          </div>
+        </div>
+      </div>
+
+      <div class="panel box box-success">
+        <div class="box-header with-border">
+          <h4 class="box-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              Torneios
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="box-body">
+            Depois de incluirmos no sistema todos os times que vão participar dos torneios, já podemos criar uma
+            competição no sistema utilizando o cadastro do "<a [routerLink]="['/tournament']">Torneio</a>". Aqui que
+            definimos
+            todos os times que farão parte do torneio definindo quem joga contra quem na fase inicial do torneio.
+            O sistema possui uma funcionalidade de escolher aleatoriamente todos os times que estão cadastrados no
+            sistema
+            facilitando a criação do torneio. Nesse sistema um torneio pode possuir 2, 4, 8, 16 e até 32 times
+            participantes.
+          </div>
+        </div>
+      </div>
+
+      <div class="panel box box-success">
+        <div class="box-header with-border">
+          <h4 class="box-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+              Resultados
+            </a>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+          <div class="box-body">
+            Depois que o torneio estiver cadastrado, todas as partidas que forem realizadas com seus respectivos
+            vencedores
+            deverão ser informadas no processo de "<a [routerLink]="['/result']">Resultados</a>".
+          </div>
+        </div>
+      </div>
+
+      <div class="panel box box-success">
+        <div class="box-header with-border">
+          <h4 class="box-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+              Partidas
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+          <div class="box-body">
+            Na rotina "<a [routerLink]="['/match']">Partidas</a>" é permitido consultar de forma hierárquica todo o
+            histórico de vencedores de um torneio.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

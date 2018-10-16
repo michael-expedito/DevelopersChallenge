@@ -1,0 +1,42 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">Times - Cadastro</h3>
+  </div>
+
+  <div class="box-body">
+    <div class="row">
+
+      <div class="col-md-12">
+        <form #form="ngForm" novalidate>
+
+          <div class="box-body">
+            <div class="box-body">
+              <div class="col-md-12 col-md-3">
+                <div class="form-group">
+                  <label for="inputName">Nome</label>
+                  <input type="text" [(ngModel)]="entity.Name" pInputText name="name" class="form-control" id="inputName"
+                    #name="ngModel">
+                </div>
+              </div>
+              <div class="col-md-12 col-md-9">
+                <div class="form-group">
+                  <label for="inputDescription">Descrição</label>
+                  <input type="text" [(ngModel)]="entity.Description" pInputText name="description" class="form-control"
+                    id="inputDescription" #description="ngModel">
+                </div>
+              </div>
+            </div>
+            <div class="box-footer">
+              <button type="button" class="btn btn-default" (click)="back()">Voltar</button>
+              <button type="button" class="btn btn-info pull-right" (click)="save()">Salvar</button>
+              <button type="button" class="btn btn-danger pull-right" (click)="delete()">Excluir</button>
+
+            </div>
+
+            <app-message-window [(messages)]="messages"></app-message-window>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

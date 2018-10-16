@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{F0CD393A-56CE-42AC-9856-9516405A1BDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{FB7E6ADE-F121-4873-B1D8-C05411329335}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{D52EE213-0DCA-4F4B-B919-901A79332D6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{82075683-5EBF-4C81-BF94-07623CD89E0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorneioNIBO.API", "TorneioNIBO.API\TorneioNIBO.API.csproj", "{784A21DB-1399-4B1E-AFE2-F997B615B807}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorneioNIBO.Application", "TorneioNIBO.Application\TorneioNIBO.Application.csproj", "{E4812E42-9B08-4054-A373-45287CF84B79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorneioNIBO.Domain", "TorneioNIBO.Domain\TorneioNIBO.Domain.csproj", "{F52E3514-D622-4CFE-997E-00361AB474FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorneioNIBO.Infra.Data", "TorneioNIBO.Infra.Data\TorneioNIBO.Infra.Data.csproj", "{A150E9C7-9200-4A10-A736-9E01A76A8AA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{784A21DB-1399-4B1E-AFE2-F997B615B807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{784A21DB-1399-4B1E-AFE2-F997B615B807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{784A21DB-1399-4B1E-AFE2-F997B615B807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{784A21DB-1399-4B1E-AFE2-F997B615B807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4812E42-9B08-4054-A373-45287CF84B79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4812E42-9B08-4054-A373-45287CF84B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4812E42-9B08-4054-A373-45287CF84B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4812E42-9B08-4054-A373-45287CF84B79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F52E3514-D622-4CFE-997E-00361AB474FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F52E3514-D622-4CFE-997E-00361AB474FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F52E3514-D622-4CFE-997E-00361AB474FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F52E3514-D622-4CFE-997E-00361AB474FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A150E9C7-9200-4A10-A736-9E01A76A8AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A150E9C7-9200-4A10-A736-9E01A76A8AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A150E9C7-9200-4A10-A736-9E01A76A8AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A150E9C7-9200-4A10-A736-9E01A76A8AA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{784A21DB-1399-4B1E-AFE2-F997B615B807} = {F0CD393A-56CE-42AC-9856-9516405A1BDF}
+		{E4812E42-9B08-4054-A373-45287CF84B79} = {FB7E6ADE-F121-4873-B1D8-C05411329335}
+		{F52E3514-D622-4CFE-997E-00361AB474FA} = {D52EE213-0DCA-4F4B-B919-901A79332D6C}
+		{A150E9C7-9200-4A10-A736-9E01A76A8AA8} = {82075683-5EBF-4C81-BF94-07623CD89E0B}
+	EndGlobalSection
+EndGlobal

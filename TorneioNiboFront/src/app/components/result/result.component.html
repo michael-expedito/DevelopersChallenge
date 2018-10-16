@@ -1,0 +1,105 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">Resultados</h3>
+  </div>
+
+  <div class="box-body">
+    <div class="row">
+
+      <div class="col-md-12">
+        <form #form="ngForm" novalidate>
+
+          <div class="box-body">
+            <div class="box-body">
+
+              <div class="col-md-12 col-md-6">
+                <div class="form-group">
+                  <label for="inputTournament">Torneio</label>
+                  <p-dropdown [options]="tournamentList" [(ngModel)]="tournamentSelected" [style]="{'width':'100%'}"
+                    #tournament="ngModel" name="tournament" id="inputTournament" optionLabel="Name" (onChange)="changeTournament($event)">
+                  </p-dropdown>
+                </div>
+              </div>
+
+              <div class="col-md-12 col-md-6">
+                <div class="form-group">
+                  <label for="inputPhase">Fase</label>
+                  <p-dropdown [options]="tournamentSelected?.Phases" [(ngModel)]="phaseSelected" [style]="{'width':'100%'}"
+                    #phase="ngModel" name="phase" id="inputPhase" optionLabel="NumberPhase" (onChange)="changePhase($event)">
+                  </p-dropdown>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <p-table #dt [value]="phaseSelected?.Matches">
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th>Número da partida</th>
+                      <th>Time A</th>
+                      <th>Time B</th>
+                      <th>Vencedor</th>
+                      <th style="width: 60px">&nbsp;</th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-m>
+                    <tr>
+                      <td>{{m.NumberMatch}}</td>
+                      <td>{{m.FirstTeam?.Name}}</td>
+                      <td>{{m.SecondTeam?.Name}}</td>
+                      <td>{{m.WinnerTeam?.Name}}</td>
+                      <td>
+                        <button class="btn btn-info btn-sm" (click)="showDialog(m)" [disabled]="phaseSelected?.Closed">
+                          <i class="fa fa-trophy"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+              <div class="col-md-12">
+                <p-toolbar>
+                  <div class="ui-toolbar-group-left">
+                    <button pButton type="button" label="Fechar fase" [disabled]="disableBtnClosePhase" (click)="closePhase()"
+                      icon="pi pi-plus"></button>
+
+                  </div>
+
+                  <div class="ui-toolbar-group-right">
+                    <button pButton type="button" label="Registrar vencedores" icon="pi pi-plus"
+                      (click)="register()" [disabled]="phaseSelected.Closed"></button>
+                  </div>
+                </p-toolbar>
+              </div>
+              <p-dialog [(visible)]="display" [modal]="true" [width]="300" [blockScroll]="true">
+                <p-header>
+                  Partida Nº {{ matchSelected?.NumberMatch }}
+                </p-header>
+
+                {{ matchSelected?.FirstTeam?.Name }} X {{ matchSelected?.SecondTeam?.Name }}
+                <div class="box box-primary">
+                  <div class="box-body">
+                    <div class="row">
+
+                      <div class="col-md-12">
+                        <label for="inputWinnerTeam">Time vencedor</label>
+                        <p-dropdown [options]="teamsMatch" [(ngModel)]="matchSelected.WinnerTeam" [style]="{'width':'100%'}"
+                          #winnerTeam="ngModel" name="winnerTeam" id="inputWinnerTeam" optionLabel="Name" appendTo="body"
+                          placeholder="Selecione">
+                        </p-dropdown>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-footer">
+                    <button type="button" class="btn btn-info pull-right" (click)="closeDialog()">OK</button>
+                  </div>
+                </div>
+              </p-dialog>
+            </div>
+
+            <app-message-window [(messages)]="messages"></app-message-window>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

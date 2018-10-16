@@ -1,0 +1,23 @@
+<button type="button" id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#modal-default"></button>
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Mensagens</h3>
+      </div>
+      <div class="modal-body">
+
+        <div *ngFor="let m of messages" class="form-group has-{{m.type}} ">
+          <label class="control-label"><i class="fa fa-info-circle"></i> {{ m.description }} - ({{ m.code }})</label>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

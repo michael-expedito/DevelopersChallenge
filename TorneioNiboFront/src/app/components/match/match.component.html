@@ -1,0 +1,35 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">Partidas</h3>
+  </div>
+
+  <div class="box-body">
+    <div class="row">
+      <form #form="ngForm" novalidate>
+        <div class="col-md-12">
+
+
+          <div class="box-body">
+            <div class="box-body">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="inputTournament">Torneio</label>
+                  <p-dropdown [options]="tournamentList" [(ngModel)]="tournamentSelected" [style]="{'width':'100%'}"
+                    #tournament="ngModel" name="tournament" id="inputTournament" optionLabel="Name" (onChange)="changeTournament($event)">
+                  </p-dropdown>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <p-scrollPanel [style]="{width: '100%', height: '100%'}" styleClass="custombar2">
+                  <p-organizationChart [value]="dataTreeNode"></p-organizationChart>
+                </p-scrollPanel>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

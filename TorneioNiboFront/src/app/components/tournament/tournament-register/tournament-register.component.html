@@ -1,0 +1,122 @@
+<div class="box box-primary">
+  <div class="box-header">
+    <h3 class="box-title">Torneios - Cadastro</h3>
+  </div>
+
+  <div class="box-body">
+    <div class="row">
+
+      <div class="col-md-12">
+        <form #form="ngForm" novalidate>
+
+          <div class="box-body">
+            <div class="box-body">
+              <div class="col-md-12 col-md-6">
+                <div class="form-group">
+                  <label for="inputName">Nome</label>
+                  <input type="text" [(ngModel)]="entity.Name" pInputText name="name" class="form-control" id="inputName"
+                    #name="ngModel">
+                </div>
+              </div>
+              <div class="col-md-12 col-md-3">
+                <div class="form-group">
+                  <label for="inputNumberTeams">Número de times</label>
+                  <p-dropdown [options]="optionsNumberTeams" [(ngModel)]="entity.NumberTeams" [style]="{'width':'100%'}"
+                    #numberTeams="ngModel" name="numberTeams" id="inputNumberTeams" (onChange)="changeNumberTeams($event)">
+                  </p-dropdown>
+                </div>
+              </div>
+              <div class="col-md-12 col-md-3">
+                <div class="form-group">
+                  <label for="inputNumberPhases">Número de fases</label>
+                  <input type="text" pInputText [(ngModel)]="entity.NumberPhases" #numberPhases="ngModel" name="numberPhases"
+                    id="inputNumberPhases" style="width: 100%" disabled=true />
+                </div>
+              </div>
+
+              <!--div class="col-md-12">
+                <div class="form-group">
+                  <label for="inputNumberPhases">Fase</label>
+                  <p-dropdown [options]="entity.Phases" [(ngModel)]="phaseSelected" [style]="{'width':'100%'}" #phases="ngModel"
+                    name="phases" id="inputPhases" optionLabel="NumberPhase" (onChange)="disabledBtnSearchTeam($event)">
+                  </p-dropdown>
+                </div>
+              </div-->
+              <div class="col-md-12" style="text-align: center;">
+                <button pButton type="button" label="Buscar times aleatórios" icon="fa fa-random"
+                  [(disabled)]="statusBtnSearchTeam" (click)="generateTeams()"></button>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <p-table [value]="phaseSelected?.Matches" [responsive]="true">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Número da partida</th>
+                    <th>Time A</th>
+                    <th>Time B</th>
+                    <th>Vencedor</th>
+                    <th style="width: 60px">&nbsp;</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-m>
+                  <tr>
+                    <td>{{m.NumberMatch}}</td>
+                    <td>{{m.FirstTeam?.Name}}</td>
+                    <td>{{m.SecondTeam?.Name}}</td>
+                    <td>{{m.WinnerTeam?.Name}}</td>
+                    <td>
+                      <button class="btn btn-info btn-sm" (click)="showDialog(m)" [disabled]="phaseSelected.NumberPhase > 1">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+              <p-dialog [(visible)]="display" [modal]="true" [width]="300" [blockScroll]="true">
+                <p-header>
+                  Partida Nº {{ matchSelected?.NumberMatch }}
+                </p-header>
+                <div class="box box-primary">
+                  <div class="box-body">
+                    <div class="row">
+
+                      <div class="col-md-12">
+                        <label for="inputFirstTeam">Time A</label>
+                        <p-dropdown [options]="teamsList" [(ngModel)]="matchSelected.FirstTeam" [style]="{'width':'100%'}"
+                          #firstTeam="ngModel" name="firstTeam" id="inputFirstTeam" optionLabel="Name" appendTo="body"
+                          placeholder="Selecione">
+                        </p-dropdown>
+                      </div>
+                      <div class="col-md-12">
+                        <label for="inputSecondTeam">Time B</label>
+                        <p-dropdown [options]="teamsList" [(ngModel)]="matchSelected.SecondTeam" [style]="{'width':'100%'}"
+                          #secondTeam="ngModel" name="secondTeam" id="inputSecondTeam" optionLabel="Name" appendTo="body"
+                          placeholder="Selecione">
+                        </p-dropdown>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box-footer">
+                    <button type="button" class="btn btn-info pull-right" (click)="closeDialog()">OK</button>
+                  </div>
+                </div>
+              </p-dialog>
+            </div>
+            <app-message-window [(messages)]="messages"></app-message-window>
+          </div>
+          <div class="box-footer">
+            <p-toolbar>
+              <div class="ui-toolbar-group-left">
+                <button pButton type="button" label="Voltar" (click)="back()"></button>
+              </div>
+              <div class="ui-toolbar-group-right">
+                <button pButton type="button" label="Excluir" class="ui-button-danger" (click)="delete()"></button>
+                <button pButton type="button" label="Salvar" class="ui-button-success" (click)="save()"></button>
+              </div>
+            </p-toolbar>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
