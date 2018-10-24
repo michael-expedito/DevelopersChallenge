@@ -13,7 +13,7 @@ namespace TorneioNIBO.Infra.Data.Mapping
             References(x => x.FirstTeam).Column("id_first_team");
             References(x => x.SecondTeam).Column("id_second_team");
             References(x => x.WinnerTeam).Column("id_winner_team");
-            References(x => x.Phase).Column("id_phase").Cascade.All();
+            References(x => x.Phase).Column("id_phase");
             Table("match");
         }
     }

@@ -26,8 +26,9 @@ export abstract class RegisterComponent<T> implements OnInit {
     const id: number = this.route.snapshot.params['id'];
     if (id != undefined) {
       this.findById(id);
+    } else {
+      this.entity = this.createEntity();
     }
-    this.entity = this.createEntity();
   }
 
   abstract createEntity(): T;
@@ -47,6 +48,7 @@ export abstract class RegisterComponent<T> implements OnInit {
           const mensagens: Array<Message> = responseApi.messages;
           if (!FunctionsService.hasErrors(mensagens)) {
             this.form.resetForm();
+            this.entity = this.createEntity();
           }
           this.showMessage(mensagens);
         });
@@ -57,6 +59,7 @@ export abstract class RegisterComponent<T> implements OnInit {
           const mensagens: Array<Message> = responseApi.messages;
           if (!FunctionsService.hasErrors(mensagens)) {
             this.form.resetForm();
+            this.entity = this.createEntity();
           }
           this.showMessage(mensagens);
         });
@@ -71,6 +74,7 @@ export abstract class RegisterComponent<T> implements OnInit {
         const mensagens: Array<Message> = responseApi.messages;
         if (!FunctionsService.hasErrors(mensagens)) {
           this.form.resetForm();
+          this.entity = this.createEntity();
         }
         this.showMessage(mensagens);
       });

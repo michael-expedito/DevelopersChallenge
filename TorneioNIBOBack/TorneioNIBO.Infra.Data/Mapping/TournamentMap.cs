@@ -11,7 +11,7 @@ namespace TorneioNIBO.Infra.Data.Mapping
             Map(x => x.Name);
             Map(x => x.NumberTeams).Column("number_teams");
             Map(x => x.NumberPhases).Column("number_phases");
-            HasMany(x => x.Phases).Cascade.AllDeleteOrphan().Inverse().LazyLoad();
+            HasMany(x => x.Phases).Inverse().Cascade.AllDeleteOrphan();
             Table("tournament");
         }
     }

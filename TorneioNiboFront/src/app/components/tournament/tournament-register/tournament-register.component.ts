@@ -21,7 +21,6 @@ export class TournamentRegisterComponent
   extends RegisterComponent<TournamentDto>
   implements OnInit {
   optionsNumberTeams = [
-    { label: "2 Times", value: 2 },
     { label: "4 Times", value: 4 },
     { label: "8 Times", value: 8 },
     { label: "16 Times", value: 16 },

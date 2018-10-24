@@ -19,5 +19,6 @@ namespace TorneioNIBO.Domain.Interfaces.Repositories
         void BeginTransaction();
         void Commit();
         void Rollback();
+        void Flush();
     }
 }

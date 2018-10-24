@@ -89,5 +89,10 @@ namespace TorneioNIBO.Infra.Data.Repositories
         {
             session.Evict(entity);
         }
+
+        public void Flush()
+        {
+            session.Flush();
+        }
     }
 }

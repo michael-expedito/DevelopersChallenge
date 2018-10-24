@@ -7,7 +7,7 @@ namespace TorneioNIBO.Domain.Services
 {
     public class BaseCRUDService<TEntity> : IBaseCRUDService<TEntity> where TEntity : class
     {
-        private readonly IBaseRepository<TEntity> _repository;
+        protected readonly IBaseRepository<TEntity> _repository;
 
         protected IList<Message> messages;
 
@@ -17,7 +17,7 @@ namespace TorneioNIBO.Domain.Services
             messages = new List<Message>();
         }
 
-        public void Delete(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace TorneioNIBO.Domain.Services
 
         }
 
-        public void Save(TEntity entity)
+        public virtual void Save(TEntity entity)
         {
             try
             {
@@ -56,12 +56,12 @@ namespace TorneioNIBO.Domain.Services
             }
         }
 
-        public void Update(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
             try
             {
                 if (ValidUpdate(entity))
-                {
+                { 
                     _repository.BeginTransaction();
                     _repository.Update(entity);
                     _repository.Commit();
@@ -75,12 +75,12 @@ namespace TorneioNIBO.Domain.Services
             }
         }
 
-        public IList<TEntity> GetAll()
+        public virtual IList<TEntity> GetAll()
         {
             return _repository.GetAll();
         }
 
-        public TEntity GetById(int? Id)
+        public virtual TEntity GetById(int? Id)
         {
             return _repository.FindByPrimaryKey(Id);
         }

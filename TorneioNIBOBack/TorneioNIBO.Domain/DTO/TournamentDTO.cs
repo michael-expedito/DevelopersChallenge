@@ -65,7 +65,6 @@ namespace TorneioNIBO.Domain.DTO
             foreach (var p in Phases)
             {
                 Phase phase = new Phase();
-                phase.Id = p.Id;
                 phase.NumberPhase = p.NumberPhase;
                 phase.Tournament = tournament;
                 phase.Matches = new List<Match>();
@@ -73,7 +72,6 @@ namespace TorneioNIBO.Domain.DTO
                 foreach (var m in p.Matches)
                 {
                     Match match = new Match();
-                    match.Id = m.Id;
                     match.Phase = phase;
                     match.NumberMatch = m.NumberMatch;
                     match.FirstTeam = m.FirstTeam != null ? new Team() { Id = m.FirstTeam.Id, Name = m.FirstTeam.Name, Description = m.FirstTeam.Description } : null;

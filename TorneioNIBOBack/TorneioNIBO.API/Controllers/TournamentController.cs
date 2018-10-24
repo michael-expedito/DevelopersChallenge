@@ -51,12 +51,13 @@ namespace TorneioNIBO.API.Controllers
             return response;
         }
 
-        public Response<TournamentDTO> Put([FromBody]TournamentDTO team)
+        public Response<TournamentDTO> Put([FromBody]TournamentDTO tournamentDto)
         {
             Response<TournamentDTO> response = new Response<TournamentDTO>();
-            Tournament newtournament = team.ConvertToTournament(null);
+            Tournament newtournament = _tournamentAppCRDService.GetById(tournamentDto.Id);
+            newtournament = tournamentDto.ConvertToTournament(newtournament);
             _tournamentAppCRDService.Update(newtournament);
-            response.data = team.ConvertTournamentToDTO(newtournament);
+            response.data = tournamentDto.ConvertTournamentToDTO(newtournament);
             response.messages = _tournamentAppCRDService.GetMessages();
             return response;
         }

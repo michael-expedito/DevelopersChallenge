@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TorneioNIBO.Domain.Entities;
 using TorneioNIBO.Domain.Interfaces.Repositories;
@@ -65,5 +66,6 @@ namespace TorneioNIBO.Domain.Services
         {
             return ValidTournament(entity);
         }
+
     }
 }

@@ -10,8 +10,8 @@ namespace TorneioNIBO.Infra.Data.Mapping
             Id(x => x.Id).Column("id").GeneratedBy.Sequence("phase_id_seq");
             Map(x => x.NumberPhase).Column("number_phase");
             Map(x => x.Closed).Column("closed");
-            References(x => x.Tournament).Column("id_tournament").Cascade.All();
-            HasMany(x => x.Matches).Cascade.AllDeleteOrphan().Inverse().LazyLoad();
+            References(x => x.Tournament).Column("id_tournament");
+            HasMany(x => x.Matches).Inverse().Cascade.AllDeleteOrphan();
             Table("phase");
         }
     }
